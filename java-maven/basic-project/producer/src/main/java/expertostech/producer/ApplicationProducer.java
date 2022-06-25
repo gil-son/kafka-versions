@@ -16,6 +16,4 @@ public class ApplicationProducer {
         EventProducer eventProducer = new EventProducer();
         eventProducer.execute();
     }
-
-
 }
