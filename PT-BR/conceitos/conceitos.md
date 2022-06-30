@@ -54,21 +54,20 @@ O Apache Kafka permite conectores no qual é possível fazer leituras em repassa
 
 Uma forma de conexão é através do 'Producer'. O 'Producer' é um sistema que produz um dado, seja um carro que disparou um alarme, um e-commercer que efetuou uma notificação, um sistema de envio de mensagens, etc. Esse dado vai ser encaminhado para o Apache Kafka e o mesmo fará o gerenciamento do dado:
 
-[producer] --dados--> [kafka]
-
+<div align="center"><img src="https://thumbs2.imgbox.com/e6/3d/m6YRD1OW_t.png" alt="image host"/></div>
 
 ### Broker
 
 O Apache Kafka possui um sistema de 'Clusters' que são disversos bancos de dados integrados conhecidos como 'Brokers' que ajudam no gerenciamento dos dados. Então o Kafka é um 'Cluster' com diversos 'Brokers'. E, cada 'Broker' tem o seu próprio banco de dados:
 
-[producer] --dados--> [ [kafka] [[Broker A],[Broker B],[Broker C]] ]
+<div align="center"><img src="https://thumbs2.imgbox.com/d7/53/jfXc7XGK_t.png" alt="image host"/></div>
 
 
 ### Consumer
 
 O 'Consumer' é o sistema que quer receber o dado que veio 'Producer' e está em um 'Broker'. O 'Consumer' ficar ouvindo/em alerta pelo dado que pode vir do Kafka e quando chega o dado ele consome. O sistema que compoem o 'Consumer' possui uma lógica que o faz monitorar o Kafka "para sempre" em um loop:
 
-[producer] --dados--> [ [kafka] [[Broker A],[Broker B],[Broker C]] ] <--while(true)-- Consumer
+<div align="center"><img src="https://thumbs2.imgbox.com/29/5f/ZZcrdqgr_t.png" alt="image host"/><</div>
 
 
 ### Zookeeper
@@ -78,15 +77,8 @@ O Zookeeper é um sistema de 'Service Discovery' ele consegue orquestrar os 'Bro
 
 É um sistema que trabalha em conjunto com o Kafka, e talvez em breve seja possível utilizar sistemas semelhantes. Em todo caso, o Kafka precisa desse tipo de sistema para o seu funcionamento:
 
-
-                                          [Zookeeper]
-                                              |
-[producer] --dados--> [ [kafka] [[Broker A],[Broker B],[Broker C]] ] <--while(true)-- Consumer
-
-
-
-
-
+<div align="center"><img src="https://thumbs2.imgbox.com/45/4d/ozqgNj91_t.png" alt="image host"/><</div>
+                                       
 
 
 
