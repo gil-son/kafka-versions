@@ -79,7 +79,26 @@ It is a system that works in conjunction with Kafka, and it may soon be possible
 
 <div align="center"><img src="https://thumbs2.imgbox.com/45/4d/ozqgNj91_t.png" alt="image host"/></div>
                                        
+<hr/>
 
+<table>
+   <tr>
+     <th>Location</th>
+     <th>Link</th>
+   </tr>
+   <tr>
+     <td>Rise to the top</td>
+     <td><a href="https://github.com/gil-son/kafka-versions/edit/main/ENG-US/concepts">:arrow_up:</a></td>
+   </tr>
+   <tr>
+     <td>Go back to previous session</td>
+     <td><a href="https://github.com/gil-son/kafka-versions/tree/main/ENG-US">:arrow_left:</a></td>
+   </tr>
+    <tr>
+     <td>First session</td>
+     <td><a href="https://github.com/gil-son/kafka-versions">:taxi:</a></td>
+   </tr>
+</table>
 
 
 
