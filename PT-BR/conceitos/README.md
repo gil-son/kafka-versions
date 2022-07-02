@@ -80,6 +80,25 @@ O Zookeeper é um sistema de 'Service Discovery' ele consegue orquestrar os 'Bro
 <div align="center"><img src="https://thumbs2.imgbox.com/45/4d/ozqgNj91_t.png" alt="image host"/></div>
                                        
 
+<hr/>
 
+<table>
+  <tr>
+    <th>Local</th>
+    <th>Link</th>
+  </tr>
+  <tr>
+    <td>Subir até o topo</td>
+    <td><a href="https://github.com/gil-son/kafka-versions/tree/main/PT-BR/conceitos">:arrow_up:</a></td>
+  </tr>
+  <tr>
+    <td>Voltar a sessão anterior</td>
+    <td><a href="https://github.com/gil-son/kafka-versions/tree/main/PT-BR">:arrow_left:</a></td>
+  </tr>
+   <tr>
+    <td>Primeira sessão</td>
+    <td><a href="https://github.com/gil-son/kafka-versions">:taxi:</a></td>
+  </tr>
+</table>
 
 
