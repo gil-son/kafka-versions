@@ -67,7 +67,7 @@ Apache Kafka has a system of 'Clusters' which are several integrated databases k
 
 The 'Consumer' is the system that wants to receive the data that came from 'Producer' and is in a 'Broker'. The 'Consumer' is listening/on alert for the data that can come from Kafka and when the data arrives it consumes. The system that makes up 'Consumer' has a logic that makes it monitor Kafka "forever" in a loop:
 
-<div align="center"><img src="https://thumbs2.imgbox.com/29/5f/ZZcrdqgr_t.png" alt="image host"/><</div>
+<div align="center"><img src="https://thumbs2.imgbox.com/29/5f/ZZcrdqgr_t.png" alt="image host"/></div>
 
 
 ### Zookeeper
@@ -77,9 +77,28 @@ Zookeeper is a 'Service Discovery' system it manages to orchestrate the 'Brokers
 
 It is a system that works in conjunction with Kafka, and it may soon be possible to use similar systems. In any case, Kafka needs this type of system to work:
 
-<div align="center"><img src="https://thumbs2.imgbox.com/45/4d/ozqgNj91_t.png" alt="image host"/><</div>
+<div align="center"><img src="https://thumbs2.imgbox.com/45/4d/ozqgNj91_t.png" alt="image host"/></div>
                                        
+<hr/>
 
+<table>
+   <tr>
+     <th>Location</th>
+     <th>Link</th>
+   </tr>
+   <tr>
+     <td>Rise to the top</td>
+     <td><a href="https://github.com/gil-son/kafka-versions/edit/main/ENG-US/concepts">:arrow_up:</a></td>
+   </tr>
+   <tr>
+     <td>Go back to previous session</td>
+     <td><a href="https://github.com/gil-son/kafka-versions/tree/main/ENG-US">:arrow_left:</a></td>
+   </tr>
+    <tr>
+     <td>First session</td>
+     <td><a href="https://github.com/gil-son/kafka-versions">:taxi:</a></td>
+   </tr>
+</table>
 
 
 

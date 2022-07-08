@@ -67,7 +67,7 @@ O Apache Kafka possui um sistema de 'Clusters' que são disversos bancos de dado
 
 O 'Consumer' é o sistema que quer receber o dado que veio 'Producer' e está em um 'Broker'. O 'Consumer' ficar ouvindo/em alerta pelo dado que pode vir do Kafka e quando chega o dado ele consome. O sistema que compoem o 'Consumer' possui uma lógica que o faz monitorar o Kafka "para sempre" em um loop:
 
-<div align="center"><img src="https://thumbs2.imgbox.com/29/5f/ZZcrdqgr_t.png" alt="image host"/><</div>
+<div align="center"><img src="https://thumbs2.imgbox.com/29/5f/ZZcrdqgr_t.png" alt="image host"/></div>
 
 
 ### Zookeeper
@@ -77,9 +77,28 @@ O Zookeeper é um sistema de 'Service Discovery' ele consegue orquestrar os 'Bro
 
 É um sistema que trabalha em conjunto com o Kafka, e talvez em breve seja possível utilizar sistemas semelhantes. Em todo caso, o Kafka precisa desse tipo de sistema para o seu funcionamento:
 
-<div align="center"><img src="https://thumbs2.imgbox.com/45/4d/ozqgNj91_t.png" alt="image host"/><</div>
+<div align="center"><img src="https://thumbs2.imgbox.com/45/4d/ozqgNj91_t.png" alt="image host"/></div>
                                        
 
+<hr/>
 
+<table>
+  <tr>
+    <th>Local</th>
+    <th>Link</th>
+  </tr>
+  <tr>
+    <td>Subir até o topo</td>
+    <td><a href="https://github.com/gil-son/kafka-versions/tree/main/PT-BR/conceitos">:arrow_up:</a></td>
+  </tr>
+  <tr>
+    <td>Voltar a sessão anterior</td>
+    <td><a href="https://github.com/gil-son/kafka-versions/tree/main/PT-BR">:arrow_left:</a></td>
+  </tr>
+   <tr>
+    <td>Primeira sessão</td>
+    <td><a href="https://github.com/gil-son/kafka-versions">:taxi:</a></td>
+  </tr>
+</table>
 
 
