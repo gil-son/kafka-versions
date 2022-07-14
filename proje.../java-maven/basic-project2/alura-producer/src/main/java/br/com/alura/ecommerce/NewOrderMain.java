@@ -10,9 +10,10 @@ import org.apache.kafka.common.serialization.StringSerializer;
 
 import java.util.Objects;
 import java.util.Properties;
+import java.util.concurrent.ExecutionException;
 
 public class NewOrderMain {
-    public static void main(String[] args) throws JsonProcessingException {
+    public static void main(String[] args) throws JsonProcessingException, ExecutionException, InterruptedException {
 
         var json = "{\n" +
                 "   \"idOrder\":111,\n" +
@@ -37,17 +38,26 @@ public class NewOrderMain {
         System.out.println("Price:" + order.getPrice());
 
         var producer = new KafkaProducer<String, String>(properties());
-        var record = new ProducerRecord<String, String>("ECOMMERCE_NEW_ORDER", order.getIdOrder(), order.getIdUser());
+        var record = new ProducerRecord<String, String>("ECOMMERCE_NEW_ORDER", order.getIdOrder(), tree.toString());
 
-        producer.send(record);
+        producer.send(record, (data, exception) -> {
+            if(exception != null){
+                exception.printStackTrace();
+            }
+
+            System.out.println("Success! Submitted topic: "+ data.topic() // Observer
+                    + " partition: " + data.partition()
+                    + " offset: " + data.offset() // = message
+                    + " timestamp: "+ data.timestamp());
+         }).get(); // asynchronous, click with the CTRL + button on send and see. then the .get() waits for the method to complete and in that case success or exceptions may occur
     }
 
     private static Properties properties(){
         var properties = new Properties();
-        // Servidor e local
+        // Server and location
         properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"127.0.0.1:9092");
-        // Tanto o valor quanto a chave, vao transformar a mensagem e a chave, baseadas em Strings
-        // Transformadores de String para bytes, ou seja, serializadores
+        // Both the value and the key will transform the message and the key, based on Strings
+        // String-to-byte transformers, i.e. serializers
         properties.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
 
