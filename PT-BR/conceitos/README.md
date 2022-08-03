@@ -17,7 +17,7 @@ Apache Kafka é uma plataforma open-source serve para o processamento/transmiss�
 
 ### Registros
 
-- Registo completo
+- Registro completo
 - Histórico
 
 ### Compatibilidade do Core
@@ -58,7 +58,7 @@ Uma forma de conexão é através do 'Producer'. O 'Producer' é um sistema que 
 
 ### Broker
 
-O Apache Kafka possui um sistema de 'Clusters' que são disversos bancos de dados integrados conhecidos como 'Brokers' que ajudam no gerenciamento dos dados. Então o Kafka é um 'Cluster' com diversos 'Brokers'. E, cada 'Broker' tem o seu próprio banco de dados:
+O Apache Kafka possui um sistema de 'Clusters' que são diversos bancos de dados integrados conhecidos como 'Brokers' que ajudam no gerenciamento dos dados. Então o Kafka é um 'Cluster' com diversos 'Brokers'. E, cada 'Broker' tem o seu próprio banco de dados:
 
 <div align="center"><img src="https://thumbs2.imgbox.com/d7/53/jfXc7XGK_t.png" alt="image host"/></div>
 
