@@ -18,3 +18,5 @@
     <td><a href="https://github.com/gil-son/kafka-versions/tree/main/ENG-US" >English reading</a></td> 
   </tr>
 </table> 
+
+</div>
