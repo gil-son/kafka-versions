@@ -1,10 +1,70 @@
 # Conceitos do Apache Kafka
 
+<details><summary><h2>Introdução</h2></summary>
 
-## Introdução 
+<br/>
 
 Apache Kafka é uma plataforma open-source serve para o processamento/transmissão de dados/streams em um fluxo contínuo, desenvolvida pela Apache Software Foundation, escrita em Scala e Java. Tem como objetivo fornecer uma plataforma unificada, de alta capacidade e baixa latência para tratamento de dados em tempo real. Ou seja, é um sistema de mensageria de alto desempenho e em tempo real. Essa plataforma se popularizou muito nos últimos anos com a “ascensão dos microsserviços”. O Kafka se destaca por ser extremamente veloz, escalável e versátil.
 
+
+No início as companias apenas queriam integrar os dados de um sistema para o outro. Um Source System que envia dados para o System Target e nisso poderia ocorrer no percuso a Extração, Transformação e Carregamento dos dados:
+
+<div align="center"><img src="https://thumbs2.imgbox.com/b8/57/1Yk11Tmu_t.jpg"/></div>
+
+Após um tempo as companias passaram a necessitar de mais Source System e mais System Target:
+
+<div align="center"><img src="https://thumbs2.imgbox.com/3c/c1/o4yJEXnl_t.jpg"/></div>
+
+
+Com isso a integração entre os sistemas se torna um desafio maior. Se você tem 4 Source System e 6 System Target a quantidade de integração é 24:
+
+- E cada integração possui suas configurações
+	- Protocol 
+		- como os dados são transportados(TCP, HTTP, REST, FTP, JDBC...)
+	- Data format
+		- como os dados são passados(Binary, CSV, JSON, Avro,Protobuf..)
+- E cada Source System terá a sua carga aumentada por conexões
+
+Então como resolvemos esse problema?
+
+
+Bem, através de desacomplamentos utilizando o Apache Kafka, é possível otimizar:
+
+Tanto o System Source quanto o Target System continuam com suas funções e o Kafka
+passa a fazer intermédio entre esses sistemas
+
+<div align="center"><img src="https://thumbs2.imgbox.com/a4/d3/krYKwxkO_t.jpg"/></div>
+
+Mas o que muda? Agora o System Source são apenas responsáveis pelo envio dos dados.
+E passam a ser chamados de Producer, pois produzem os dados no Kafka. E com isso
+o Kafka passa a ter um fluxo de dados que origina do Producer. E, esses dados precisam
+de um destino, que é o System Target, que passa a ser chamado de Consumer, pois consome
+os dados:
+
+<div align="center"><img src="https://thumbs2.imgbox.com/90/c5/koM7ku6a_t.jpg"/></div>
+
+Isso deixa tudo mais excalável. 
+
+
+Se continuarmos no mesmo exemplo, um Producer, pode ser:
+	
+- Uma página web
+- Dados de preços
+- transações financeiras
+- interações de usuários
+- todas essas coisas que criam fluxos de dados
+
+E esses dados criados/trafegados em tempo real no Apache Kafka.
+
+E um Consumer, pode ser:
+
+- Um banco de dados
+- Sistema de Análises
+- Sistema de e-mail
+- Auditoria
+- sistemas que são alimentados por dados
+
+</details>
 
 ## Motivos para utilizar
 
