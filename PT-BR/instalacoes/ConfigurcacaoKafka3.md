@@ -145,7 +145,7 @@ kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic library-eve
 
 </details>
 
-## onfigurando vários 'Kafka Brokers'
+## Configurando vários 'Kafka Brokers'
 
 - O primeiro passo é adicionar um novo **server.properties**.
 
