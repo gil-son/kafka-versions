@@ -120,6 +120,7 @@ O Apache Kafka permite conectores no qual é possível fazer leituras em repassa
 - trucks_gps;
 - outras formas de aplicações que enviam dados.
 
+<div align="center"><img src="https://thumbs2.imgbox.com/74/56/3aqNDUNC_t.png"/></div>
 
 'Topic' é similar a uma tabela de banco de dados, com as seguintes diferenças:
 
