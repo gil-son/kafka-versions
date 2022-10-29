@@ -110,6 +110,34 @@ E um Consumer, pode ser:
 
 O Apache Kafka permite conectores no qual é possível fazer leituras em repassar para um ou mais sistemas em tempo real. 
 
+### Topic
+
+'Topic' é fluxo específico de dados dentro de um 'Cluster' no Kafka. Portanto um 'Cluster' do Kafka pode ter muitos 'Topics', por exemplo:
+
+- logs;
+- compras;
+- twitter_tweets;
+- trucks_gps;
+- outras formas de aplicações que enviam dados.
+
+
+'Topic' é similar a uma tabela de banco de dados, com as seguintes diferenças:
+
+- sem restrições de dados, pode enviar o que quiser, pois não há verificação de dados
+- não exclui/atualiza os dados armazenados, para isso é necessário um novo envio do "estado" daquele dado
+- suportam qualquer tipo de mensagem:
+	- JSON
+	- Avro
+	- Arquivo em geral
+	- Binário
+- não se adiciona dados em um 'Topic' existente, é necessário um novo envio através de um 'Producer'
+- não se pode consultar os 'Topics', mas é possível ler o dado final através de um 'Consumer'
+
+<p>Para localizar um 'Topic' em um 'Cluster', basta utilziar o seu nome</p>
+<p>A sequência das mensagens em um 'Topic' é chamada de fluxo de dados. E, por isso o Kafka é conhecido por plataforma de stream de dados. Então o stream é feito por meio de 'Topics'</p>
+
+
+
 ### Producer
 
 Uma forma de conexão é através do 'Producer'. O 'Producer' é um sistema que produz um dado, seja um carro que disparou um alarme, um e-commercer que efetuou uma notificação, um sistema de envio de mensagens, etc. Esse dado vai ser encaminhado para o Apache Kafka e o mesmo fará o gerenciamento do dado:
