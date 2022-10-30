@@ -124,19 +124,36 @@ O Apache Kafka permite conectores no qual é possível fazer leituras em repassa
 
 'Topic' é similar a uma tabela de banco de dados, com as seguintes diferenças:
 
-- sem restrições de dados, pode enviar o que quiser, pois não há verificação de dados
-- não exclui/atualiza os dados armazenados, para isso é necessário um novo envio do "estado" daquele dado
-- suportam qualquer tipo de mensagem:
-	- JSON
-	- Avro
-	- Arquivo em geral
-	- Binário
-- não se adiciona dados em um 'Topic' existente, é necessário um novo envio através de um 'Producer'
-- não se pode consultar os 'Topics', mas é possível ler o dado final através de um 'Consumer'
+- Sem restrições de dados, pode enviar o que quiser, pois não há verificação de dados;
+- Não exclui/atualiza os dados armazenados (imutabilidade), para isso é necessário um novo envio do "estado" daquele dado;
+- Os dados são mantidos por um tempo limitado. Por padrão 1 semana, mas é configurável;
+- Suportam qualquer tipo de mensagem:
+	- JSON;
+	- Avro;
+	- Arquivo em geral;
+	- Binário;
+- Não se adiciona dados em um 'Topic' existente, é necessário um novo envio através de um 'Producer';
+- Não se pode consultar os 'Topics', mas é possível ler o dado final através de um 'Consumer';
+- O deslocamento de um dado (Offset) só pode ser feito no 'Topic' daquela 'Partition';
+- O dado é armazenado de forma aleatória na 'Partition', a menos que seja providênciado uma 'Key';
+- É possível ter quantas 'Partitions' forem necessárias.
 
 <p>Para localizar um 'Topic' em um 'Cluster', basta utilziar o seu nome</p>
 <p>A sequência das mensagens em um 'Topic' é chamada de fluxo de dados. E, por isso o Kafka é conhecido por plataforma de stream de dados. Então o stream é feito por meio de 'Topics'</p>
 
+#### Partition and Offset
+
+'Topics' podem ser divididos em partições, então um 'Topic' pode ter inumeras partições, por exemplo 100. Nesse exemplo abaixo o 'Topic' possue 3 partições:
+
+[img]
+
+Logo as mensagens enviadas ao Kafka estarão dentro de uma 'Partition', onde essa 'Partition' estará dentro de um 'Topic', e esse 'Topic' dentro de um 'Cluster'... e esse 'Cluster' dentro de um 'Broker'
+
+E as mensagens dentro de cada 'Partition' estarão ordenadas. As mensagens na 'Partition' zero terão o id zero, as mensagens na 'Partition' um terão o id um e assim por diante. Enquanto mensagens entrarem a quantidade de id's aumentam:
+
+[img]
+
+O id é reconhecido por deslocamento da 'Partition', também conhecido por 'Offset'. Como visto na imagem acima, cada 'Partition' tem o seu 'Offset' diferente do outro e agora os 'Topics' são imutáveis. Isso significa que uma vez que os dados são gravados em uma partição, eles não podem ser alterados/excluídos no Kafka. Para isso é necessário continuar gravando na 'Partition'.
 
 
 ### Producer
@@ -168,6 +185,20 @@ O Zookeeper é um sistema de 'Service Discovery' ele consegue orquestrar os 'Bro
 
 <div align="center"><img src="https://thumbs2.imgbox.com/45/4d/ozqgNj91_t.png" alt="image host"/></div>
                                        
+
+##### Example
+
+Vamos supor que tenhamos uma frota de caminhões e que esses caminhões a cada 20 segundos enviam dados de sua localização (latitude e longitude), é um nosso 'Producer'. Com isso teremos um 'Topic' chamado trucks_gps. Optamos por criar um 'Topic' com 10 'Partitions' de forma arbitrária (é possível estabelecer a quantidade):
+
+[img]
+
+
+Agora, queremos que os 'Consumers' recebam os dados do trucks_gps e os envie para um painel de localização (dashboard). Assim é possível rastrear todos os caminhões em tempo real. Ou talvez queiramos que um serviço de notificação consuma o mesmo fluxo de dados e envie informações da entrega para clientes:
+
+[img]
+
+
+Tudo isso em tempo real!
 
 <hr/>
 
