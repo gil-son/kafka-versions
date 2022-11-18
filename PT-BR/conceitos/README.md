@@ -158,9 +158,27 @@ O id é reconhecido por deslocamento da 'Partition', também conhecido por 'Offs
 
 ### Producer
 
-Uma forma de conexão é através do 'Producer'. O 'Producer' é um sistema que produz um dado, seja um carro que disparou um alarme, um e-commercer que efetuou uma notificação, um sistema de envio de mensagens, etc. Esse dado vai ser encaminhado para o Apache Kafka e o mesmo fará o gerenciamento do dado:
+Uma forma de conexão é através do 'Producer'. O 'Producer' é um sistema que produz um dado no 'Topic', seja um carro que disparou um alarme, um e-commercer que efetuou uma notificação, um sistema de envio de mensagens, etc. Esse dado vai ser encaminhado para o Apache Kafka e o mesmo fará o gerenciamento do dado:
 
 <div align="center"><img src="https://thumbs2.imgbox.com/e6/3d/m6YRD1OW_t.png" alt="image host"/></div>
+
+- O 'Producer' sabe em qual 'Topic' vai registrar e é capaz de gerenciar
+- Em casos de falhas do 'Broker' o 'Producer' vai automaticamente garantir que o dados seja salvo
+- Possui 'Load balancing' o que permite organizar distribuir/organizar os dados
+
+#### Message keys
+
+- 'Producer' pode escolher se envia uma mensagem com uma 'key' (string, number, binary, etc)
+- Se não possuir uma 'key' a ordem de inserção no 'Topic' será em sequência de um por um (partition 0, partition 1, ...). Sempre utilizando o balanceamento dos dados nas partições:
+
+<div align="center"><img src="https://thumbs2.imgbox.com/1f/90/iVA8kFzl_t.png" alt="image host"/></div>
+
+- Se possuir uma key, a inserção vai ser por referência, pode ser um id em combinação com uma técnica de 'hashing'. Por exemplo um caminhão envia dados de sua localização, a referência desse caminhão é o seu id, no caso truck_id123. O 'Producer' vai armazenar os dados em um 'Topic' e em uma 'Partition'. Nesse caso a partição 0... e vai continuar recebendo dados de outros caminhões com outros id's. Quando receber um dado referente ao truck_id123, ele vai armazenar na  mesma partição que corresponde aquele id, esse novo registro vai ter agora um novo id, por exemplo truck_id234:
+
+<div align="center"><img src="https://thumbs2.imgbox.com/a4/4d/9BQuddHi_t.png" alt="image host"/></div>
+
+#### Message anatomy
+
 
 ### Broker
 
