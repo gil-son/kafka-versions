@@ -145,13 +145,13 @@ O Apache Kafka permite conectores no qual é possível fazer leituras em repassa
 
 'Topics' podem ser divididos em partições, então um 'Topic' pode ter inumeras partições, por exemplo 100. Nesse exemplo abaixo o 'Topic' possue 3 partições:
 
-[img]
+<div align="center"><img src="https://thumbs2.imgbox.com/06/ec/3TzRox64_t.png"/></div>
 
 Logo as mensagens enviadas ao Kafka estarão dentro de uma 'Partition', onde essa 'Partition' estará dentro de um 'Topic', e esse 'Topic' dentro de um 'Cluster'... e esse 'Cluster' dentro de um 'Broker'
 
 E as mensagens dentro de cada 'Partition' estarão ordenadas. As mensagens na 'Partition' zero terão o id zero, as mensagens na 'Partition' um terão o id um e assim por diante. Enquanto mensagens entrarem a quantidade de id's aumentam:
 
-[img]
+<div align="center"><img src="https://thumbs2.imgbox.com/45/d4/RgtVJGkU_t.png"/></div>
 
 O id é reconhecido por deslocamento da 'Partition', também conhecido por 'Offset'. Como visto na imagem acima, cada 'Partition' tem o seu 'Offset' diferente do outro e agora os 'Topics' são imutáveis. Isso significa que uma vez que os dados são gravados em uma partição, eles não podem ser alterados/excluídos no Kafka. Para isso é necessário continuar gravando na 'Partition'.
 
