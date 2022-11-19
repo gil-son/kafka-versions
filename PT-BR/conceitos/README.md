@@ -177,7 +177,48 @@ Uma forma de conexão é através do 'Producer'. O 'Producer' é um sistema que 
 
 <div align="center"><img src="https://thumbs2.imgbox.com/a4/4d/9BQuddHi_t.png" alt="image host"/></div>
 
+Obs.: sempre para o mesmo 'Topic' o que muda é a 'Partition'. Portanto a 'key' faz parte da organização uma mensagem do 'Producer' em uma 'Partition'
+
+### Kafka Message
+
 #### Message anatomy
+
+Verificando a fundo a estrutura completa que é uma mensagem do Kafka a mesma carrega uma 'Key' and 'Value', ondem ambos podem ser nulos
+
+As mensagens do Kafka podem ser comprimidas em formatos menores, como:
+
+- gzip
+- snappy
+- iz4 
+- zstd
+
+E é possível adicionar 'Headers' as mensagens que possui uma lista opciona de chave e valor:
+
+<div align="center"><img src="https://thumbs2.imgbox.com/30/11/BgjTDsdF_t.png" alt="image host"/></div>
+
+Note que a mensagem além da sua 'Partition' + 'Offset' no qual vai ser encaminhada. Possui também um 'Timestamp' de data/hora definido pelo sistema ou usuário para registrar de forma precisa os momentos
+
+Sim, isso que é uma mensagem do Kafka :)
+
+#### Message Serializes
+
+Como essa mensagem é criada? 
+
+Quando a mensagem vem de um 'Producer' qualquer, ela pode estar em qualquer tipo de formato (JSON, XML, Avro, String, Protobuf ...) só que ela não entra e não sai do Kafka, sem ser
+serializada, ou seja, transformados em bytes
+
+O Kafka apenas aceita valor em bytes em sua entrada quando vem de um 'Producer'. O mesmo se aplica quando o Kafka encaminha a sua mensagem para um 'Consumer', a mensagem vai estar serializada e depois o 'Consumer' vai precisar deserializar
+
+Se a mensagem do Kafka precisa estar em bytes, logo a mensagem ao ser trafegada, precisa estar serializada:
+
+<div align="center"><img src="https://thumbs2.imgbox.com/e8/54/h7hFOVJC_t.png" alt="image host"/></div>
+
+#### Message Key
+
+O Kafka possui recursos avançados para a criptografia das mensagens. Existe uma lógica dentro do Kafka que pega a mensagem gravada e determina qual a 'Partition'.
+E por sua vez utiliza o 'Key Hashing' que determina um mapeamento de 'key' e 'value' para a partição escolhida. E essa partição vai ser protegida pelo 'murmur2 algoritm'
+
+No momento não será aprofundado esse tema, mas fica para curiosos
 
 
 ### Broker
