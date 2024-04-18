@@ -1,17 +1,18 @@
 package net.javaguides.kafka;
 
+import net.javaguides.payload.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
 @Service
-public class KafkaConsumer {
+public class JsonKafkaConsumer {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(KafkaConsumer.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(JsonKafkaConsumer.class);
 
-    @KafkaListener(topics = "my-topic", groupId="myGroup")
-    public void consume(String message){
-        LOGGER.info(String.format("Message received -> %s", message));
+    @KafkaListener(topics = "my-json-topic", groupId="myGroup")
+    public void consume(User user){
+        LOGGER.info(String.format("JSON message received -> %s", user.toString()));
     }
 }
