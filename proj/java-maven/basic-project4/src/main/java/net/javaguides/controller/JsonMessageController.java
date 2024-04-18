@@ -1,28 +1,25 @@
 package net.javaguides.controller;
 
+import net.javaguides.kafka.JsonKafkaProducer;
 import net.javaguides.kafka.KafkaProducer;
+import net.javaguides.payload.User;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/kafka")
-public class MessageController {
+public class JsonMessageController {
 
-    private KafkaProducer kafkaProducer;
+    private JsonKafkaProducer kafkaProducer;
 
-    public MessageController(KafkaProducer kafkaProducer) {
+    public JsonMessageController(JsonKafkaProducer kafkaProducer) {
         this.kafkaProducer = kafkaProducer;
     }
 
-    // http:localhost:8080/api/v1/kafka/publish?message=hello world
-    @GetMapping("publish")
-    public ResponseEntity<String> publish(@RequestParam("message") String message){
-        kafkaProducer.sendMessage(message);
-        return ResponseEntity.ok("Message sent to the topic");
+    // http:localhost:8080/api/v1/kafka/publish
+    @PostMapping("/publish")
+    public ResponseEntity<String> publish(@RequestBody User user){
+        kafkaProducer.sendMessage(user);
+        return ResponseEntity.ok("Json message sent to kafka topic");
     }
-
-
 }
