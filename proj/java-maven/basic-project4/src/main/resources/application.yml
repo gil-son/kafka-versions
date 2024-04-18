@@ -2,6 +2,10 @@ spring:
   application:
     name: basicproject4
   kafka:
+    topic:
+      name: "my-topic"
+    topic-json:
+      name: "my-json-topic"
     consumer:
       bootstrap-servers: localhost:9092
       group-id: myGroup
